@@ -4,6 +4,7 @@ var wrap = require('word-wrap');
 var map = require('lodash.map');
 var longest = require('longest');
 var chalk = require('chalk');
+var lerna  = require('./lerna.js')
 
 var filter = function(array) {
   return array.filter(function(x) {
@@ -186,7 +187,8 @@ module.exports = function(options) {
             return answers.isIssueAffected;
           },
           default: options.defaultIssues ? options.defaultIssues : undefined
-        }
+        },
+        lerna.genQuesion(),
       ]).then(function(answers) {
         var wrapOptions = {
           trim: true,
@@ -214,7 +216,9 @@ module.exports = function(options) {
 
         var issues = answers.issues ? wrap(answers.issues, wrapOptions) : false;
 
-        commit(filter([head, body, breaking, issues]).join('\n\n'));
+        var affects = answers.affects.length ? 'affects: ' + answers.affects.join(', ') : ''
+
+        commit(filter([head, body, breaking, issues, affects]).join('\n\n'));
       });
     }
   };

@@ -1,3 +1,34 @@
+# cz-conventional-changelog-lerna
+Add a line "affects" to commit.
+
+Forked from cz-conventional-changelog. No dependence added. Just a little change. Tested with `lerna@5`.
+
+Lerna monorepo root package.json example:
+```json
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog-lerna": "^0.1.0",
+    "lerna": "^5.0.0"
+  },
+  "scripts": {
+    "commit": "cz",
+    "commit-all": "git add . && cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog-lerna",
+    }
+  }
+}
+```
+
+**Follow is orginal documentation of cz-conventional-changelog.**
 # cz-conventional-changelog
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/commitizen/cz-conventional-changelog.svg)](https://greenkeeper.io/)
