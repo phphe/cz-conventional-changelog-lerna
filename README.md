@@ -28,6 +28,23 @@ Lerna monorepo root package.json example:
 }
 ```
 
+lerna.json
+```json
+{
+  "packages": [
+    "packages/*"
+  ],
+  "command": {
+    "version": {
+      "conventionalCommits": true
+    }
+  },
+  "version": "independent"
+}
+```
+When execute `lerna version` or `lerna publish`, the changelog will be generated.
+
+
 **Follow is orginal documentation of cz-conventional-changelog.**
 # cz-conventional-changelog
 
