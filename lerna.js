@@ -15,6 +15,7 @@ module.exports = {
       "lerna",
       "list",
       "--json",
+      "--all",
     ]).output.toString();
     const m = output.match(/\[.*\]/s);
     const packages = JSON.parse(m[0])
@@ -66,7 +67,7 @@ module.exports = {
       })
     }))
     // 
-    const choices = packages.map(v => ({name: v.name, value: v.name}))
+    const choices = packages.map(v => ({ name: v.name, value: v.name }))
     const selected = changedPackages.map(v => v.name)
     return {
       type: 'checkbox',
