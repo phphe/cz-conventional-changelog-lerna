@@ -3,7 +3,7 @@
 var wrap = require('word-wrap');
 var map = require('lodash.map');
 var longest = require('longest');
-var chalk = import('chalk').default;
+var chalk = require('chalk')
 var lerna = require('./lerna.js')
 
 var filter = function (array) {
